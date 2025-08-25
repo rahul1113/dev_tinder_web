@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { BASE_URL } from "../utils/utils";
-import { useNavigate } from "react-router-dom";
+
 import { setUser } from "../store/slices/user";
 import UserCard from "./UserCard";
 
@@ -42,7 +42,7 @@ const EditProfile: React.FC<EditProfileProps> = ({ profileData }) => {
   const [error, setError] = useState<string | undefined>();
   const [showToast, setShowToast] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const handleSave = async () => {
     setError("");
     try {
