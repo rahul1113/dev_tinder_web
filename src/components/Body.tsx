@@ -20,7 +20,7 @@ const Body = () => {
       });
       dispatch(setUser(res.data));
     } catch (err: any) {
-      if (err.status === 400) {
+      if (err.status === 401 || err.status === 400) {
         navigate("/login");
       }
       console.error("Error fetching user data:", err);

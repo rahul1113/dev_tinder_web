@@ -11,6 +11,7 @@ const Feed = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const getFeed = async () => {
+    console.log(BASE_URL);
     try {
       const resFeed = await axios.get(BASE_URL + "/feed", {
         withCredentials: true,
@@ -18,7 +19,7 @@ const Feed = () => {
       dispatch(addFeed(resFeed.data.data));
     } catch (err: any) {
       console.error("Error fetching feed:", err);
-      if (err.status === 400) {
+      if (err.status === 401 || err.status === 400) {
         navigate("/login");
       }
     }
